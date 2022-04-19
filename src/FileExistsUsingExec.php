@@ -3,7 +3,6 @@
 namespace FileUtil;
 
 use ExecWithFallback\ExecWithFallback;
-use FileUtil\FileExists;
 
 /**
  * A fileExist implementation using exec()
@@ -37,27 +36,5 @@ class FileExistsUsingExec
         // We assume that "ls" command is general available!
         // As that failed, we can conclude the file does not exist.
         return false;
-    }
-
-    /**
-     * A fileExist doing the best it can.
-     *
-     * @throws \Exception  If it cannot be determined if the file exists
-     * @return boolean|null  True if file exists. False if it doesn't.
-     */
-    public static function fileExistsTryHarder($path)
-    {
-        try {
-            $result = FileExists::fileExists($path);
-        } catch (\Exception $e) {
-            try {
-                $result = self::fileExists($path);
-            } catch (\Exception $e) {
-                throw new \Exception('Cannot determine if file exists or not');
-            } catch (\Throwable $e) {
-                throw new \Exception('Cannot determine if file exists or not');
-            }
-        }
-        return $result;
     }
 }

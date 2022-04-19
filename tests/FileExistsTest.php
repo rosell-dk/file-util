@@ -14,6 +14,15 @@ class FileExistsTest extends TestCase
         $this->assertFalse(FileExists::fileExists(__DIR__ . '/not-here.php'));
     }
 
+    public function testFileExistsTryHarder()
+    {
+        if (function_exists('exec')) {
+            $this->assertTrue(FileExists::fileExistsTryHarder(__DIR__ . '/FileExistsTest.php'));
+            $this->assertFalse(FileExists::fileExistsTryHarder(__DIR__ . '/not-here.php'));
+        }
+    }
+
+
     /*
     public function testFileExistsNoReadPermission()
     {

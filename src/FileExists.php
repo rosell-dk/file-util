@@ -2,6 +2,8 @@
 
 namespace FileUtil;
 
+use FileUtil\FileExistsUsingExec;
+
 /**
  * A fileExist function free of deception
  *
@@ -68,5 +70,27 @@ class FileExists
 
         list($errstr, $errno) = self::$lastWarning;
         throw new \Exception($errstr, $errno);
+    }
+
+    /**
+     * A fileExist doing the best it can.
+     *
+     * @throws \Exception  If it cannot be determined if the file exists
+     * @return boolean|null  True if file exists. False if it doesn't.
+     */
+    public static function fileExistsTryHarder($path)
+    {
+        try {
+            $result = self::fileExists($path);
+        } catch (\Exception $e) {
+            try {
+                $result = FileExistsUsingExec::fileExists($path);
+            } catch (\Exception $e) {
+                throw new \Exception('Cannot determine if file exists or not');
+            } catch (\Throwable $e) {
+                throw new \Exception('Cannot determine if file exists or not');
+            }
+        }
+        return $result;
     }
 }

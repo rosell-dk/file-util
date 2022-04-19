@@ -12,6 +12,9 @@ Just a bunch of handy methods for dealing with files and paths:
 - *FileExists::fileExists($path)*:\
 A well-behaved version of *file_exists* that throws upon failure rather than emitting a warning
 
+- *FileExists::fileExistsTryHarder($path)*:\
+Also well-behaved. Tries FileExists::fileExists(). In case of failure, tries exec()-based implementation
+
 - *PathValidator::checkPath($path)*:\
 Check if path looks valid and doesn't contain suspecious patterns
 

@@ -15,11 +15,4 @@ class FileExistsUsingExecTest extends TestCase
         }
     }
 
-    public function testFileExistsTryHarder()
-    {
-        if (function_exists('exec')) {
-            $this->assertTrue(FileExistsUsingExec::fileExistsTryHarder(__DIR__ . '/FileExistsTest.php'));
-            $this->assertFalse(FileExistsUsingExec::fileExistsTryHarder(__DIR__ . '/not-here.php'));
-        }
-    }
 }
