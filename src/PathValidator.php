@@ -67,5 +67,4 @@ class PathValidator
             throw new \Exception('Expected a regular file, not a dir');
         }
     }
-
 }

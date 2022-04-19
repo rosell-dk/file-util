@@ -69,5 +69,4 @@ class FileExists
         list($errstr, $errno) = self::$lastWarning;
         throw new \Exception($errstr, $errno);
     }
-
 }
