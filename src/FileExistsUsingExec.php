@@ -51,7 +51,7 @@ class FileExistsUsingExec
             $result = FileExists::fileExists($path);
         } catch (\Exception $e) {
             try {
-                $result = self::fileExistsUsingExec($path);
+                $result = self::fileExists($path);
             } catch (\Exception $e) {
                 throw new \Exception('Cannot determine if file exists or not');
             } catch (\Throwable $e) {
