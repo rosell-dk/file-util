@@ -2,7 +2,7 @@
 
 [![Build Status](https://github.com/rosell-dk/file-util/workflows/build/badge.svg)](https://github.com/rosell-dk/file-util/actions/workflows/php.yml)
 [![Software License](https://img.shields.io/badge/license-MIT-418677.svg)](https://github.com/rosell-dk/file-util/blob/master/LICENSE)
-[![Coverage](https://img.shields.io/endpoint?url=https://little-b.it/file-util/code-coverage/coverage-badge.json)](http://little-b.it/file-util/code-coverage/coverage/index.html)
+[![Coverage](https://img.shields.io/endpoint?url=https://file-util-coverage-report.littlebit.workers.dev/coverage-badge.json)](https://file-util-coverage-report.littlebit.workers.dev/coverage/)
 [![Latest Stable Version](https://img.shields.io/packagist/v/rosell-dk/file-util.svg)](https://packagist.org/packages/rosell-dk/file-util)
 [![Minimum PHP Version](https://img.shields.io/packagist/php-v/rosell-dk/file-util)](https://php.net)
 
