@@ -64,11 +64,12 @@ class FileExists
 
         // file_exists returned false.
         // this result is only trustworthy if no warning was emitted.
+        // @phpstan-ignore if.alwaysTrue
         if (is_null(self::$lastWarning)) {
             return false;
         }
 
-        list($errstr, $errno) = self::$lastWarning;
+        list($errstr, $errno) = self::$lastWarning; // @phpstan-ignore deadCode.unreachable
         throw new \Exception($errstr, $errno);
     }
 
@@ -76,7 +77,7 @@ class FileExists
      * A fileExist doing the best it can.
      *
      * @throws \Exception  If it cannot be determined if the file exists
-     * @return boolean|null  True if file exists. False if it doesn't.
+     * @return boolean  True if file exists. False if it doesn't.
      */
     public static function fileExistsTryHarder($path)
     {
